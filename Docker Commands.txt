@@ -1,0 +1,309 @@
+Docker
+
+Docer container run -d --name NameoFContainer image
+docker continer stop DOCKERID
+docker inspect dockerID | grep -i log 
+
+Create  image file as named Dockerfile with no extenstion in PWD
+echo FROM ubuntu > Dockerfile
+docker build -t name_of_image .(path where image file exists)
+create with tag name docekr build -t nameofimage:tag_name .
+
+
+Docker system prune ( to list all dangling)''
+
+
+    1  docker container run ubuntu
+    2  docker container ls
+    3  docker ps
+    4  docker container ls -a
+    5  docker container ls
+    6  docker container ls -a
+    7  echo $SHELL
+    8  cat /etc/shells
+    9  docker container run -it ubuntu
+   10  docker container ls
+   11  docker container ls -a
+   12  docker container run -d ubuntu
+   13  docker container ls
+   14  docker container ls -a
+   15  docker container run -it ubuntu
+   16  docker container run -d ubuntu
+   17  docker container ls -a
+   18  docker container run -d --name test ubuntu
+   19  docker container ls -a
+   20  systemctl status docker
+   21  cd /usr/lib/systemd/system/
+   22  ls
+   23  ls -ltr | grep docker
+   24  less docker.service
+   25  cd /etc/systemd/system.conf.d/
+   26  ls
+   27  find / -name docker
+   28  less /etc/sysconfig/docker
+   29  d /etc/
+   30  cd /etc/
+   31  grep -i cgroup *
+   32  cd
+   33  systemctl status docker
+
+
+   65  #docker container run -d --name test ubuntu
+   66  systemctl  status docker
+   67  #docker container run -d --name test ubuntu
+   68  cd /etc/yum.repos.d/
+   69  ls
+   70  less amazonlinux.repo
+   71  yum install salman
+   72  vi amazonlinux.repo
+   73  less amazonlinux.repo
+   74  vi amazonlinux.repo
+   75  less amazonlinux.repo
+   76  cd
+   77  #docker container run -d --name test ubuntu
+   78  docker container ls -a
+   79  docker container run -d --name testcont ubuntu
+   80  docker container ls
+   81  docker container ls -a
+   82  docker container run -d --name testcont ubuntu
+   83  docker container run -d --name testcont1 ubuntu
+   84  docker container ls -a
+   85  docker container rm 4bd57fc5501e
+   86  docker container rm testcont
+   87  docker container rm 5aa7
+   88  docker container rm e4e8
+   89  docker container ls -a
+   90  docker container rm 87ccf8fdc2ad 3ee9ff3ae86a 7b2217c36d24 bb4517bb7fda
+   91  docker container ls -a
+   92  docker container rm cd8bbf7ac35c
+   93  docker container ls -a
+   94  docker ls  -h | grep tag
+   95  docker ls  -h | grep label
+   96  ls
+   97  vi file1
+   98  ls -ltr
+   99  tail -f file1
+  100  docker container run -d --name testcont ubuntu tail -f /dev/null
+  101  docker container ls
+  102  docker container run -d --name testcont1 ubuntu sleep 20
+  103  docker container run -d --name testcont2 ubuntu sleep 20
+  104  docker container ls
+  105  tail file1
+  106  tail -f file1
+  107  docker container ls
+  108  docker container rm testcont
+  109  docker container stop testcont
+  110  docker container ls
+  111  docker container ls  -a
+  112  docker container ls -a
+  113  docker container start testcont
+  114  docker container ls -a
+  115  docker container ls
+  116  docker container rm -f testcont
+  117  docker container ls -a
+  118  docker container run -d --name testcont ubuntu tail -f /dev/null
+  119  docker container ls -a
+  120  docker container kill testcont
+  121  docker container ls -a
+  122  #run ; stop ; start ; rm ; rm -f ; kill
+  123  docker container ls -a
+  124  cd /var/lib/docker
+  125  ls
+  126  cd  containers/
+  127  ls
+  128  docker container rm  6b5c492aa8ad
+  129  ls
+  130  df -h /var/lib/docker/
+  131  cd /etc/docker
+  132  ls
+  133  vi daemon.json
+  134  ls -ld /mnt/
+  135  systemctl daemon-reload
+  136  systemctl stop docker
+  137  systemctl start docker
+  138  cd /mnt/
+  139  ls
+  140  docker container run -d --name testnew ubuntu
+  141  docker container ls -a
+  142  cd /var/lib/docker/containers/
+  143  ls
+  144  cd /mnt/containers/
+  145  ls
+  146  cat /etc/docker/daemon.json
+  147  df -h
+  148  cat /etc/docker/daemon.json
+  149  cd /mnt/
+  150  ls
+  151  cd /var/lib/docker/
+  152  ls
+  153  cat /etc/docker/daemon.json
+  154  rm /etc/docker/daemon.json
+  155  systemctl daemon-reload
+  156  systemctl restart docker
+  157  cd /mnt/
+  158  ls
+  159  cd /var/lib/docker/
+  160  cd /var/lib/docker/containers/
+  161  ls
+  162  cd /mnt/containers/
+  163  ls
+  164  docker container run -d --name testnew1 ubuntu
+  165  cd /mnt/containers/
+  166  ls
+  167  cd /var/lib/docker/containers/
+  168  ls
+  169  visudo
+  170  #run ; stop ; start ; rm ; rm -f ; kill
+  171  docker container ls
+  172  docker container run -d --name testcont ubuntu tail -f /dev/null
+  173  docker container run -d --name testcont1 ubuntu tail -f /dev/null
+  174  docker container run -d --name testcont2 ubuntu tail -f /dev/null
+  175  docker container ls
+  176  docker container exec -it testcont2 /bin/bash
+  177  docker container ls
+  178  docker container exec -it testcont2 /bin/bash
+  179  docker container ls
+  180  docker container pause testcont2
+  181  docker container ls
+  182  docker container unpause testcont2
+  183  docker container ls
+  184  docker container pause testcont2
+  185  docker container ls
+  186  docker container rm testcont2
+  187  docker container rm -f testcont2
+  188  history
+  189  docker container ls
+  190  docker container run -d --name testcont4 nginx
+  191  docker container ls
+  192  docker container exec -it 1a052 /bin/bash
+  193  docker container ls
+  194  docker container rm -f testcont4
+  195  docker container run -d --name testcont4 nginx
+  196  ls
+  197  docker container exec -it testcont4 /bin/bash
+  198  docker container ls
+  199  ls
+  200  cat file1
+  201  docker container cp file1 testcont4:/tmp
+  202  docker container exec -it testcont4 /bin/bash
+  203  ls
+  204  docker container cp testcont4:/tmp .
+  205  ls
+  206  docker container cp testcont4:/tmp/file2 .
+  207  ls
+  208  docker container ls
+  209  docker container run -d --name testcont5 nginx
+  210  docker container ls
+  211  docker container cp testcont4:/tmp/file2 testcont5:/tmp/
+  212  docker container cp file2 testcont5
+  213  docker container cp file2 testcont5:/
+  214  docker container exec -it testcont5 /bin/bash
+  215  docker container ls
+  216  docker logs a23488a02d82
+  217  docker logs a23488a02d82 -f
+  218  docker container ls
+  219  docker container rename testcont5 newcont
+  220  docker container ls
+  221  docker container ls -a
+  222  docker container prune
+  223  docker container ls
+  224*
+  225  docker logs a23488a02d82 -f
+  226  docker inspect a23488a02d82
+  227  docker inspect a23488a02d82  | grep -i log
+  228  docker container run -d --name testcont5 nginx
+  229  docker container run -d --name testcont5 centos
+  230  docker image ls
+  231  cd /var/lib/docker/
+  232  ls
+  233  d image/
+  234  cd image/
+  235  ls
+  236  cd overlay2/
+  237  ls
+  238  cd imagedb/content/sha256/
+  239  ls
+  240  cd
+  241  docker container run -d --name testcont5 centos
+  242  docker image pull centos
+  243  doker image pull salilkul87/testimage
+  244  docker image pull salilkul87/testimage
+  245  docker image pull salilkul87/demo-image
+  246  docker login
+  247  docker image pull salilkul87/demo-image
+  248  docker image ls
+  249  docker logout
+  250  docker image pull salilkul87/demo-image
+  251  docker image pull salilkul87/testimage
+  252  docker login
+  253  docker image pull aline
+  254  docker image pull alpine
+  255  docker image ls
+  256  docker container run -d --name javacont openjdk
+  257  docker container ls
+  258  docker container ls -a
+  259  docker container run -d --name javacont1 openjdk sleep 3600
+  260  docker container exec -it javacont1 bash
+  261  docker image ls
+  262  docker container exec -it javacont1 bash
+  263  cd /lib
+  264  ls
+  265  cd /sbin/
+  266  ls
+  267  cd
+  268  docker image ls
+  269  docker container ls
+  270  vi Dockerfile
+  271  docker image ls
+  272  docker container prune
+  273  docker image ls
+  274  docker image prune
+  275  docker image ls
+  276  docker image rm salilkul87/testimage nginx alpine salilkul87/demo-image openjdk centos
+  277  docker image ls
+  278  docker image rm nginx
+  279  docker container ls
+  280  docker container rm -f $(docker ps -qa)
+  281  docker container ls
+  282  docker image ls
+  283  docker image rm nginx openjdk
+  284  docker image ls
+  285  docker container ls
+  286  ls
+  287  cat Dockerfile
+  288  docker build -t myimg .
+  289  docker image ls
+  290  vi Dockerfile
+  291  docker build -t myimg .
+  292  docker image ls
+  293  cat Dockerfile
+  294  vi Dockerfile
+  295  docker build -t myimg .
+  296  docker image ls
+  297  cat Dockerfile
+  298  vi Dockerfile
+  299  docker build -t myimg:1 .
+  300  docker image ls
+  301  docker container run -it myimg
+  302  docker container run -it myimg:1
+  303  docker image ls
+  304  vi Dockerfile
+  305  docker build -t myimg:1 .
+  306  docker image ls
+  307  docker system prune
+  308  docker image ls
+  309  vi Dockerfile
+  310  cat Dockerfile
+  311  docker build -t myimg:1 .
+  312  docker image ls
+  313  docker image ls -a
+  314  vi Dockerfile
+  315  docker build -t myimg:1 .
+  316  docker image ls -a
+  317  vi Dockerfile
+  318  docker build -t myimg:2 .
+  319  docker image ls -a
+  320  cat Dockerfile
+  
+  docekr image rm -f $(docker image ls -ag)   will remove all image in shot
+  
